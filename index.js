@@ -1,22 +1,22 @@
-// Declaração de variáveis e constantes
-const url = "https://geo.ipify.org/api/v2/country?apiKey="
-var ip = "8.8.8.8"
+// // Declaração de variáveis e constantes
+// const url = "https://geo.ipify.org/api/v2/country?apiKey="
+// var ip = "8.8.8.8"
 
-const dadosAPI = {
-    locationCountry: " ",
-    locationRegion: " ",
-    locationTimezone: " ",
-    locationISP: " "
-}
+// const dadosAPI = {
+//     locationCountry: " ",
+//     locationRegion: " ",
+//     locationTimezone: " ",
+//     locationISP: " "
+// }
 
-alert(url + ip)
+// alert(url + ip)
 
-// Get data
+// // Get data
 
-async function getData(){
-    endereco = url + ip
-    const response = await fetch(endereco)
-    console.log(response)
-}
+// async function getData(){
+//     endereco = url + ip
+//     const response = await fetch(endereco)
+//     console.log(response)
+// }
 
-getData()
+// getData()
