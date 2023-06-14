@@ -17,39 +17,54 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+
+  <!-- Leaflet Map -->
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
 </head>
 <body>
 
   <header>
     <h1>IP Address Tracker</h1>
     <form action="">
-      <input type="text" placeholder="Search for any IP address or domain">
-      <button><img src="/images/icon-arrow.svg"></button>
+      <input type="text" class="input-ip" placeholder="Search for any IP address or domain">
+      <button class="btn-arrow"><img src="/images/icon-arrow.svg"></button>
     </form>
     <div class="information">
 
       <div class="info-section">
-        IP Address
+        <p>IP Address</p>
+        <h2>8.8.8.8</h2>
       </div>
 
       <div class="info-section">
-        Location   
+        <p>Location</p>   
+        <h2>Brooklyn, NY 10001</h2>
       </div>
 
       <div class="info-section">
-        Timezone
-        UTC
+        <p>Timezone</p>
+        <h2>UTC-05:00</h2>
       </div>
 
       <div class="info-section">
-        ISP
+        <p>ISP</p>
+        <h2>SpaceX Starlink</h2>
       </div>
       
     </div>
   </header>
 
   <section class="map">
-
+    <div id="map"></div>
   </section>
   
   <!-- <div class="attribution">
