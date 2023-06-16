@@ -24,16 +24,23 @@ async function getLocation() {
     fetch(url)
         .then((response) => response.json())
         .then((response) => {
-          ipCountry = response.country
-          alert(ipCountry)
+          showinfo(response)
         })
     
     
 
 }
 
+function showinfo(response){
+    console.log(response)
+    ipAddress = response.ip
+    ipCountry = response.country
+    ipRegion = response.region
+}
+
 arrowButton.addEventListener("click",function(){
     getLocation()
+    alert(ipRegion)
 })
 
 // Leaflet Map
