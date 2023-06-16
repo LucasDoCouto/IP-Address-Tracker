@@ -2,7 +2,6 @@
 // // Declaração de variáveis e constantes
 var arrowButton = document.querySelector(".btn-arrow")
 
-const apiKEY = "at_x5svTZkGTky0m9UU7C2d4VHGvIJPl"
 const apiURL = "https://geo.ipify.org/api/v2/country?apiKey="
 
 let ipAddress = "8.8.8.8"
@@ -14,6 +13,7 @@ let url
 
 // Replace and use your own API Key
 // Substitua e use sua própria chave de API
+const apiKEY = "at_x5svTZkGTky0m9UU7C2d4VHGvIJPl"
 
 
 // Função de integração com a API
