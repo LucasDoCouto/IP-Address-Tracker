@@ -3,8 +3,9 @@
 var arrowButton = document.querySelector(".btn-arrow")
 
 const apiURL = "https://geo.ipify.org/api/v2/country?apiKey="
+let resultado
 
-let ipAddress = "8.8.8.8"
+let ipAddress = "8.8.4.8"
 let ipCountry
 let ipRegion
 let ipISP
@@ -13,34 +14,29 @@ let url
 
 // Replace and use your own API Key
 // Substitua e use sua própria chave de API
-const apiKEY = "at_x5svTZkGTky0m9UU7C2d4VHGvIJPl"
+// const apiKEY = "at_x5svTZkGTky0m9UU7C2d4VHGvIJPl"
 
 
 // Função de integração com a API
 
 async function getLocation() {
-    var url = apiURL + apiKEY + '&ipAddress=' + ipAddress
+    var url = "https://geo.ipify.org/api/v2/country?apiKey=at_x5svTZkGTky0m9UU7C2d4VHGvIJPl&ipAddress=8.8.4.4"
     // requisição com o Fetch
-    fetch(url)
-        .then((response) => response.json())
-        .then((response) => {
-          showinfo(response)
-        })
-    
-    
 
+    const response = await fetch(url)
+    // console.log(response)
+    const resultado = await response.json();
+    return resultado
 }
 
-function showinfo(response){
-    console.log(response)
-    ipAddress = response.ip
-    ipCountry = response.country
-    ipRegion = response.region
-}
+getLocation().then(resultado => {
+    ipAddress = resultado.ip
+})
+
 
 arrowButton.addEventListener("click",function(){
     getLocation()
-    alert(ipRegion)
+    alert(ipAddress)
 })
 
 // Leaflet Map
@@ -52,5 +48,5 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup(ipCountry)
+    .bindPopup(ipAddress)
     .openPopup();
