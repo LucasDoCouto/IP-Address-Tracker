@@ -24,19 +24,33 @@ async function getLocation() {
     // requisição com o Fetch
 
     const response = await fetch(url)
-    // console.log(response)
-    const resultado = await response.json();
-    return resultado
+    const result = await response.json();
+    return result
 }
 
-getLocation().then(resultado => {
-    ipAddress = resultado.ip
+getLocation().then(result => {
+    ipAddress = result.ip
+    ipCountry = result.location.country
+    ipRegion = result.location.region
+    ipISP = result.isp
 })
+
+// Função que substitui o texto padrão pelas informações da API
+
+function assignValues(){
+    alert('teste')
+}
 
 
 arrowButton.addEventListener("click",function(){
     getLocation()
-    alert(ipAddress)
+    // Código que testa se o valor das variáveis foi atribuido corretamente
+    // TODO: remover esse código no futuro
+    // alert(`Ip Address: ${ipAddress}`)
+    // alert(`Country: ${ipCountry}`)
+    // alert("Region: " + ipRegion)
+    // alert("ISP: " + ipISP)
+    assignValues()
 })
 
 // Leaflet Map
