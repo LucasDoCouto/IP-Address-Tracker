@@ -64,15 +64,23 @@ header{
     background-color: var(--color-white);
     position: relative;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     color: var(--color-dark-grey);
-    width: auto;
-    gap: 30px;
+    width: 70;
+    /* gap: 30px; */
     padding: .8rem;
     border-radius: .8rem;
     box-shadow: 0 8px 10px 1px hsla(0, 0%, 59%, 0.19);;
     z-index: 3;
     bottom: -35%;
+}
+
+.information div{
+    padding: 10px;
+}
+
+.information div:not(:last-child){
+    border-right: 1px solid var(--color-dark-grey);
 }
 
 
