@@ -16,6 +16,8 @@ let ipCountry
 let ipRegion
 let ipTimezone
 let ipISP
+let ipLat = "51.505"
+let ipLng = "-0.09"
 let url
 
 
@@ -28,7 +30,7 @@ const apiKEY = "at_x5svTZkGTky0m9UU7C2d4VHGvIJPl"
 
 async function getLocation() {
     ipAddress = ipAddressInput.value
-    var url = "https://geo.ipify.org/api/v2/country?apiKey=" + apiKEY + "&ipAddress=" + ipAddress
+    var url = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKEY + "&ipAddress=" + ipAddress
     // var url = "https://geo.ipify.org/api/v2/country?apiKey=at_x5svTZkGTky0m9UU7C2d4VHGvIJPl&ipAddress=8.8.4.4"
 
     // requisição com o Fetch
@@ -44,6 +46,8 @@ getLocation().then(result => {
     ipRegion = result.location.region
     ipTimezone = result.location.timezone
     ipISP = result.isp
+    ipLat = result.location.lat
+    ipLng = result.location.lng
 })
 
 // Função que substitui o texto padrão pelas informações da API
@@ -59,17 +63,18 @@ function assignValues(){
 arrowButton.addEventListener("click",function(){
     getLocation()
     assignValues()
-    // alert(ipAddress)
+
+    // Move o mapa para as coordenadas do IP e adiciona um marcador
+    map.panTo([ipLat, ipLng]);
+    L.marker([ipLat, ipLng]).addTo(map)
+    .bindPopup(ipAddress)
+    .openPopup();
 })
 
 // Leaflet Map
 
-var map = L.map('map').setView([51.505, -0.09], 13);
+var map = L.map('map').setView([ipLat, ipLng], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup(ipAddress)
-    .openPopup();
