@@ -14,6 +14,7 @@ let resultado
 let ipAddress
 let ipCountry
 let ipRegion
+let ipPostalCode
 let ipTimezone
 let ipISP
 let ipLat = "51.505"
@@ -29,6 +30,7 @@ const apiKEY = "at_x5svTZkGTky0m9UU7C2d4VHGvIJPl"
 // Função de integração com a API
 
 async function getLocation() {
+    ipAddress = 0
     ipAddress = ipAddressInput.value
     var url = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKEY + "&ipAddress=" + ipAddress
     // var url = "https://geo.ipify.org/api/v2/country?apiKey=at_x5svTZkGTky0m9UU7C2d4VHGvIJPl&ipAddress=8.8.4.4"
@@ -44,6 +46,7 @@ getLocation().then(result => {
     ipAddress = result.ip
     ipCountry = result.location.country
     ipRegion = result.location.region
+    ipPostalCode = result.location.postalCode
     ipTimezone = result.location.timezone
     ipISP = result.isp
     ipLat = result.location.lat
@@ -54,7 +57,7 @@ getLocation().then(result => {
 
 function assignValues(){
     ipAddressOutput.innerHTML = ipAddress
-    locationOutput.innerHTML = ipRegion + " " + ipCountry
+    locationOutput.innerHTML = ipRegion + ", " + ipCountry + " " + ipPostalCode
     timeZoneOutput.innerHTML = "UTC" + ipTimezone
     ispOutput.innerHTML = ipISP
 }
