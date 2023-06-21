@@ -15,7 +15,7 @@
 body{
     font-family: Rubik, sans-serif;
     display: grid;
-    grid-template-rows: 35.25vh auto;
+    grid-template-rows: 35.25vh auto min-content;
     height: 100vh;
 }
 
@@ -176,4 +176,23 @@ header h1{
     width: 100%;
     height: 100%;
     z-index: 1;
+}
+
+/* Footer */
+
+.attribution {
+    /* position: absolute; */
+    width: 100vw;
+    z-index: 3;
+    /* bottom: 0; */
+    font-size: 11px; text-align: center; 
+    padding: 5px 0;
+    background-color: var(--color-very-dark-grey);
+    color: var(--color-white);
+}
+.attribution a { 
+    /* color: hsl(228, 45%, 44%); */
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: bold;
 }
