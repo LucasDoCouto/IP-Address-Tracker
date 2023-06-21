@@ -17,8 +17,8 @@ let ipRegion
 let ipPostalCode
 let ipTimezone
 let ipISP
-let ipLat = "51.505"
-let ipLng = "-0.09"
+let ipLat = "40.650002"
+let ipLng = "-73.949997"
 let url
 
 
