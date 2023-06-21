@@ -71,12 +71,12 @@ arrowButton.addEventListener("click",function(){
     map.panTo([ipLat, ipLng]);
     L.marker([ipLat, ipLng]).addTo(map)
     .bindPopup(ipAddress)
-    .openPopup();
+    // .openPopup();
 })
 
 // Leaflet Map
 
-var map = L.map('map').setView([ipLat, ipLng], 13);
+var map = L.map('map', {zoomControl: false} ).setView([ipLat, ipLng], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
