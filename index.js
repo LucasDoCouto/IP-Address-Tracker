@@ -33,7 +33,7 @@ async function getLocation() {
     ipAddress = 0
     ipAddress = ipAddressInput.value
     var url = "https://geo.ipify.org/api/v2/country,city?apiKey=" + apiKEY + "&ipAddress=" + ipAddress
-    // var url = "https://geo.ipify.org/api/v2/country?apiKey=at_x5svTZkGTky0m9UU7C2d4VHGvIJPl&ipAddress=8.8.4.4"
+    // var url = "https://geo.ipify.org/api/v2/country,city?apiKey=at_x5svTZkGTky0m9UU7C2d4VHGvIJPl&ipAddress=8.8.4.4"
 
     // requisição com o Fetch
 
