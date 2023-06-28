@@ -42,16 +42,7 @@ async function getLocation() {
     return result
 }
 
-getLocation().then(result => {
-    ipAddress = result.ip
-    ipCountry = result.location.country
-    ipRegion = result.location.region
-    ipPostalCode = result.location.postalCode
-    ipTimezone = result.location.timezone
-    ipISP = result.isp
-    ipLat = result.location.lat
-    ipLng = result.location.lng
-})
+
 
 // Função que substitui o texto padrão pelas informações da API
 
@@ -64,13 +55,23 @@ function assignValues(){
 
 
 arrowButton.addEventListener("click",function(){
-    getLocation()
-    assignValues()
+    getLocation().then(async result => {
+        ipAddress = result.ip
+        ipCountry = result.location.country
+        ipRegion = result.location.region
+        ipPostalCode = result.location.postalCode
+        ipTimezone = result.location.timezone
+        ipISP = result.isp
+        ipLat = result.location.lat
+        ipLng = result.location.lng
 
-    // Move o mapa para as coordenadas do IP e adiciona um marcador
-    map.panTo([ipLat, ipLng]);
-    L.marker([ipLat, ipLng]).addTo(map)
-    .bindPopup(ipAddress)
+        assignValues()
+        
+        // Move o mapa para as coordenadas do IP e adiciona um marcador
+        map.panTo([ipLat, ipLng]);
+        L.marker([ipLat, ipLng]).addTo(map)
+        .bindPopup(ipAddress)
+    })
     // .openPopup();
 })
 
